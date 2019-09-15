@@ -43,5 +43,12 @@ public class NodoBT <T extends Comparable<T>> {
     public int compareTo(NodoBT<T> otro){
         return this.element.compareTo(otro.element);
     }
+    @Override
+    public String toString(){
+        return element.toString();
+    }
+    public int noDescendientes(){
+        return 1;
+    }
    
 }

@@ -10,14 +10,13 @@ import java.util.ArrayList;
  *
  * @author hca
  */
-public class JavaApplication3 {
+public class treesMain {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ArrayList<String> b=new ArrayList();
-        b.add("5");
+   
         LinkedBST<String> a = new LinkedBST();
         a.add("9");
         a.add("7");
@@ -25,8 +24,18 @@ public class JavaApplication3 {
         a.add("8");
         a.add("3");
         a.add("5");
-        System.out.println(b.toString());
-        System.out.println(a.preorden().toString());
+        a.add("b");
+        a.add("c");
+        a.add("d");
+        
+
+
+        System.out.println(a.preordenA().toString());
+        System.out.println(a.postordenA().toString());
+        System.out.println(a.imordenA().toString());
+        System.out.println(a.size());
+       
+        
         
     }
 }

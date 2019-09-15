@@ -23,7 +23,7 @@ public class LinkedBT <T extends Comparable<T>> implements BinaryTreeADT<T> {
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return raiz.der==null && raiz.der==null;
     }
 
     @Override
@@ -35,7 +35,6 @@ public class LinkedBT <T extends Comparable<T>> implements BinaryTreeADT<T> {
     public T find(T elemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 
    public Iterator<T> imorden() {
         ArrayList<T> lista =new ArrayList<T>();
@@ -49,7 +48,9 @@ public class LinkedBT <T extends Comparable<T>> implements BinaryTreeADT<T> {
         imorden(actual.getIzq(),lista);
         imorden(actual.getDer(),lista);
         lista.add(actual.getElement());
-    }   
+    }  
+    
+    
     public Iterator<T> preorden() {
         ArrayList<T> lista =new ArrayList<T>();
         preorden(raiz, lista);
@@ -62,6 +63,8 @@ public class LinkedBT <T extends Comparable<T>> implements BinaryTreeADT<T> {
         preorden(actual.getIzq(),lista);
         preorden(actual.getDer(),lista);
     }
+    
+    
      public Iterator<T> postorden() {
         ArrayList<T> lista =new ArrayList<T>();
         postorden(raiz, lista);
@@ -76,9 +79,6 @@ public class LinkedBT <T extends Comparable<T>> implements BinaryTreeADT<T> {
         lista.add(actual.getElement());
     }
 
-    @Override
-    public ArrayList<T> preorden() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
    
 }

@@ -1,6 +1,5 @@
 package arboles;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 /*
@@ -15,12 +14,12 @@ import java.util.Iterator;
 public interface BinaryTreeADT <T> {
    
     public boolean isEmpty();
-     public int size();
-      public boolean contains();
-       public T find(T elemento);
-        public Iterator<T> imorden();
-         public ArrayList<T> preorden();
-          public ArrayList<T> postorden();
+    public int size();
+    public boolean contains();
+    public T find(T elemento);
+    public Iterator<T> imorden();
+    public Iterator<T> preorden();
+    public Iterator<T> postorden();
       
      
    

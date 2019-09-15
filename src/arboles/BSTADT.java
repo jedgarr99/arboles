@@ -7,6 +7,7 @@ package arboles;
 /**
  *
  * @author hca
+ * @param <T>
  */
 public interface BSTADT<T extends Comparable<T>> extends BinaryTreeADT<T> {
     public void add(T elem);
