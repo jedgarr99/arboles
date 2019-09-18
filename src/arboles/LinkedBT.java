@@ -23,7 +23,7 @@ public class LinkedBT <T extends Comparable<T>> implements BinaryTreeADT<T> {
 
     @Override
     public boolean isEmpty() {
-        return raiz.der==null && raiz.der==null;
+        return raiz==null;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class LinkedBT <T extends Comparable<T>> implements BinaryTreeADT<T> {
     }
 
     @Override
-    public T find(T elemento) {
+    public NodoBT<T> find(T elemento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

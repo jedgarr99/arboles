@@ -25,7 +25,7 @@ public class LinkedBST <T extends Comparable<T>> implements BSTADT<T>{
     }
     @Override
     public boolean isEmpty() {
-        return raiz.der==null && raiz.der==null;
+        return raiz==null;
     }
 
     @Override
@@ -137,7 +137,48 @@ public class LinkedBST <T extends Comparable<T>> implements BSTADT<T>{
     
     @Override
     public T remove(T elem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        NodoBT<T> borra = find(elem);
+        if (borra != null) {
+            cont--;
+            if (borra.getIzq() == null && borra.getDer() == null) {
+                if (borra == raiz) {
+                    raiz = null;
+                } else if (elem.compareTo(borra.getPapa().getElement()) < 0) {
+                    borra.getPapa().setIzq(null);
+                } else {
+                    borra.getPapa().setDer(null);
+                }
+            } else {
+                if (borra.getIzq() == null) {
+                    if (borra == raiz) {
+                        raiz = borra.getDer();
+                        raiz.setPapa(null);
+                    } else {
+                        borra.getPapa().cuelga(borra.getDer());
+                    }
+                } else if (borra.getDer() == null) {
+                    if (borra == raiz) {
+                        raiz = borra.getIzq();
+                        raiz.setPapa(null);
+                    } else {
+                        borra.getPapa().cuelga(borra.getIzq());
+                    }
+                    
+
+                }
+                else{//caso 3: tiene 2 hijos
+                    NodoBT<T> suc=borra.getDer();
+                    while(suc.getIzq()!=nul)
+                    
+                }
+
+
+            }
+        } else {
+            return null;
+        }
+
+
     }
 
     @Override
@@ -162,8 +203,28 @@ public class LinkedBST <T extends Comparable<T>> implements BSTADT<T>{
     
 
     @Override
-    public T find(T elemento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public NodoBT<T> find(T elemento) {
+        if(elemento!=null)
+            return find(raiz, elemento);
+        else 
+            return null;
+        
+  
+    }
+    private NodoBT<T> find(NodoBT<T> act, T elem){
+        boolean enc=false;
+        
+        while(!enc&&act!=null){
+            if(elem.compareTo(act.getElement())<0)
+                act=act.getIzq();
+            else
+                if(elem.compareTo(act.getElement())>0)
+                    act=act.getDer();
+                else 
+                    enc=true;     
+        }
+        return act;
+        
     }
     
 }

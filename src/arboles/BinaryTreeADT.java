@@ -11,12 +11,12 @@ import java.util.Iterator;
  *
  * @author hca
  */
-public interface BinaryTreeADT <T> {
+public interface BinaryTreeADT <T extends Comparable<T>> {
    
     public boolean isEmpty();
     public int size();
     public boolean contains();
-    public T find(T elemento);
+    public NodoBT<T> find(T elemento);
     public Iterator<T> imorden();
     public Iterator<T> preorden();
     public Iterator<T> postorden();

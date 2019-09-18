@@ -50,5 +50,13 @@ public class NodoBT <T extends Comparable<T>> {
     public int noDescendientes(){
         return 1;
     }
-   
+    public void cuelga(NodoBT<T> n){
+        if(n.getElement().compareTo(element)<0)
+            izq = n;
+        else
+            der = n;
+        n.setPapa(this);
+    }
+
+
 }
