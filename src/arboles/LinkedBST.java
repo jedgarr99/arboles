@@ -168,17 +168,73 @@ public class LinkedBST <T extends Comparable<T>> implements BSTADT<T>{
                 }
                 else{//caso 3: tiene 2 hijos
                     NodoBT<T> suc=borra.getDer();
-                    while(suc.getIzq()!=nul)
-                    
+                    while(suc.getIzq()!=null)
+                    return null;
                 }
 
 
             }
+            return null;
         } else {
             return null;
         }
 
 
+    }
+    public boolean removeB(T elem) { //falta actualizar el apuntador al papá
+        NodoBT<T> borrar = find(raiz, elem);
+        if (borrar != null) {
+            if (borrar.getDer() == null && borrar.getIzq() == null) { //caso 1: es una hoja
+                if (borrar == raiz) { // la jhoja es la raíz
+                    raiz = null;
+                } else {
+                    if (borrar.getPapa().getDer()==(borrar)) {
+                        borrar.getPapa().setDer(null);
+                    } else {
+                        borrar.getPapa().setIzq(null);
+                    }
+                }
+            } else {
+                if (borrar.getIzq()==null){ //caso 2: solo tiene hijo derecho
+                    if(borrar==raiz){
+                        raiz = borrar.getDer();
+                        raiz.setPapa(null);
+                    }
+                    else
+                        borrar.getPapa().cuelga(borrar.getDer());
+                }
+                else{
+                    if(borrar.getDer()==null){ //caso 2: solo tiene hijo izquierdo
+                        if(borrar==raiz){
+                            raiz = borrar.getIzq();
+                            raiz.setPapa(null);
+                        }
+                    else
+                        borrar.getPapa().cuelga(borrar.getIzq());
+                    }
+                    else{ //caso 3: tiene dos hijos
+                        /**
+                         * encontrar el sucesor inorden y ponerlo en donde esta el que quieres borrar
+                         * eliminar ese nodo pero antes hacer cuelga
+                         */
+                        NodoBT<T> suc = borrar.getDer();
+                        while(suc.getIzq()!=null)
+                            suc = suc.getIzq();
+                        borrar.setElement(suc.getElement());
+                        if(suc==borrar.getDer())
+                            borrar.setDer(suc.getDer());
+                        else
+                            suc.getPapa().setIzq(suc.getDer());
+                       
+                    }
+                }
+                   
+            }
+            cont--;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
