@@ -3,10 +3,26 @@ package arboles;
 public class NodoBT <T extends Comparable<T>> {
     T element;
     NodoBT<T> izq, der,papa;
+    int fe;
     NodoBT(T elem) {
         element=elem;
         izq=null;
         der=null;
+        fe=0;
+    }
+
+    public int getFe() {
+        return fe;
+    }
+
+    public void setFe(int fe) {
+        this.fe = fe;
+    }
+    public void feS(){
+        this.fe++;
+    }
+    public void feR(){
+        this.fe--;
     }
 
     public T getElement() {
