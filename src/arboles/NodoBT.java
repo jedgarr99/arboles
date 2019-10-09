@@ -63,9 +63,34 @@ public class NodoBT <T extends Comparable<T>> {
     public String toString(){
         return element.toString();
     }
-    public int noDescendientes(){
-        return 1;
+    public int noDescendientes() {
+        return noDescendientes(this, 0);
     }
+
+    private int noDescendientes(NodoBT<T> act, int cont) {
+        cont++;
+        if (act.getIzq() == null && act.getDer() == null) {
+            return cont;
+        } else {
+            
+            if (act.getIzq() == null) {
+                return noDescendientes(act.getDer(), cont);
+            } else {
+                if (act.getDer() == null) {
+                    return noDescendientes(act.getIzq(), cont);
+                } else {
+                    System.out.println(cont);
+                    cont++;
+                    return noDescendientes(act.getIzq(), cont) + noDescendientes(act.getDer(), cont);
+
+                }
+
+            }
+
+        }
+
+    }
+
     public void cuelga(NodoBT<T> n){
         if(n.getElement().compareTo(element)<0)
             izq = n;

@@ -134,7 +134,7 @@ public class ArbolAVL <T extends Comparable<T>> implements BinaryTreeADT<T> {
         
     }  
     
-    @Override
+
     public T remove(T elem) {
         NodoBT<T> borra = find(elem);
         if (borra != null) {
@@ -236,17 +236,17 @@ public class ArbolAVL <T extends Comparable<T>> implements BinaryTreeADT<T> {
         }
     }
 
-    @Override
+
     public T removeMin() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+
     public T findMin() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+
     public T removeMax() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

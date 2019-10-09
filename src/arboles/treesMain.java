@@ -27,13 +27,16 @@ public class treesMain {
         a.add("b");
         a.add("c");
         a.add("d");
+        a.add("f");
         
 
 
         System.out.println(a.preordenA().toString());
         System.out.println(a.postordenA().toString());
         System.out.println(a.imordenA().toString());
-        System.out.println(a.size());
+        System.out.println();
+        System.out.println(a.getRaiz().toString());
+        System.out.println(a.getRaiz().noDescendientes());
        
         
         
