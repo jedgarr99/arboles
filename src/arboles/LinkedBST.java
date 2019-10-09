@@ -93,6 +93,39 @@ public class LinkedBST <T extends Comparable<T>> implements BSTADT<T>{
         preorden(raiz, lista);
         return preordenA().iterator();
     }
+    
+      public ArrayList<T> amplitudOrdenArray() {
+        ArrayList<T> lista =new ArrayList<>();
+        amplitudOrden(raiz, lista);
+        return lista; 
+    }
+    private void amplitudOrden(NodoBT<T> actual, ArrayList<T> lista){
+        if (actual==null)
+            return;
+        lista.add(actual.getElement());
+        amplitudOrden(actual.getIzq(),lista);
+        amplitudOrden(actual.getDer(),lista);
+    }
+     public Iterator<T> amplitudOrden() {
+        ArrayList<T> lista =new ArrayList<T>();
+        amplitudOrden(raiz, lista);
+        return amplitudOrdenArray().iterator();
+    }
+     
+     public void imprime(){ 
+         System.out.println(raiz);
+         imprime(raiz.getIzq(),raiz.getDer());
+     }
+     public void imprime(NodoBT<T> izq,NodoBT<T> der ){
+         if(izq==null&&der==null)
+             return;
+         else{
+             
+         }
+             
+         
+     }
+
      
      
      
@@ -282,6 +315,7 @@ public class LinkedBST <T extends Comparable<T>> implements BSTADT<T>{
         return act;
         
     }
+    
     
     
 }
