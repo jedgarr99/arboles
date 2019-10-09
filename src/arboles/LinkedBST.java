@@ -58,7 +58,7 @@ public class LinkedBST <T extends Comparable<T>> implements BSTADT<T>{
             if(act.der==null){
                 act.der=nodo;
                 nodo.setPapa(act);
-                return;
+          
             }
             else{
                 add(nodo, act.der);  
@@ -67,7 +67,7 @@ public class LinkedBST <T extends Comparable<T>> implements BSTADT<T>{
             if(act.izq==null){
                 act.izq=nodo;
                 nodo.setPapa(act);
-                return;
+              
             }
             else{
                 add(nodo, act.izq);      

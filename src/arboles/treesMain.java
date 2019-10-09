@@ -36,7 +36,8 @@ public class treesMain {
         System.out.println(a.imordenA().toString());
         System.out.println();
         System.out.println(a.getRaiz().toString());
-        System.out.println(a.getRaiz().noDescendientes());
+        System.out.println(a.getRaiz().getDer().noDescendientes());
+        System.out.println(a.getRaiz().getDer().retornarAltura());
        
         
         

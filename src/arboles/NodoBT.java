@@ -1,9 +1,12 @@
 package arboles;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class NodoBT <T extends Comparable<T>> {
     T element;
     NodoBT<T> izq, der,papa;
-    int fe;
+    int fe,altura,cant;
     NodoBT(T elem) {
         element=elem;
         izq=null;
@@ -64,33 +67,19 @@ public class NodoBT <T extends Comparable<T>> {
         return element.toString();
     }
     public int noDescendientes() {
-        return noDescendientes(this, 0);
+        ArrayList<T> lista =new ArrayList<T>();
+        noDescendientes(this, lista);
+        return lista.size()-1;
     }
 
-    private int noDescendientes(NodoBT<T> act, int cont) {
-        cont++;
-        if (act.getIzq() == null && act.getDer() == null) {
-            return cont;
-        } else {
-            
-            if (act.getIzq() == null) {
-                return noDescendientes(act.getDer(), cont);
-            } else {
-                if (act.getDer() == null) {
-                    return noDescendientes(act.getIzq(), cont);
-                } else {
-                    System.out.println(cont);
-                    cont++;
-                    return noDescendientes(act.getIzq(), cont) + noDescendientes(act.getDer(), cont);
-
-                }
-
-            }
-
-        }
-
+    private void noDescendientes(NodoBT<T> act, ArrayList<T> lista) {
+        if (act==null)
+            return;
+        noDescendientes(act.getIzq(),lista);
+        noDescendientes(act.getDer(),lista);
+        lista.add(act.getElement());
+        
     }
-
     public void cuelga(NodoBT<T> n){
         if(n.getElement().compareTo(element)<0)
             izq = n;
@@ -98,6 +87,35 @@ public class NodoBT <T extends Comparable<T>> {
             der = n;
         n.setPapa(this);
     }
+    public int retornarAltura() {
+         altura = 0;
+        retornarAltura(this, 1);
+        return altura;
+    }
+
+    private void retornarAltura(NodoBT<T> reco, int nivel) {
+        if (reco != null) {
+            retornarAltura(reco.getIzq(), nivel + 1);
+            if (nivel > altura) {
+                altura = nivel;
+            }
+            retornarAltura(reco.getDer(), nivel + 1);
+        }
+    }
+    public int noDescendientes2() {
+        cant = 0;
+        noDescendientes2(this);
+        return cant;
+    }
+
+    private void noDescendientes2(NodoBT<T> act) {
+        if (act!= null) {
+            cant++;
+           noDescendientes2(act.getIzq());
+           noDescendientes2(act.getDer());
+        }
+    }
+    
 
 
 }
